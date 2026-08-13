@@ -26,7 +26,7 @@ const Register: React.FC<RegisterProps> = ({ onBack }) => {
     setError('');
 
     try {
-      const response = await fetch('http://localhost:5001/register', {
+      const response = await fetch('http://mini-ecommerce-store-9epp.onrender.com/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

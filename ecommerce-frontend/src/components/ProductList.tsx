@@ -33,7 +33,7 @@ export const ProductList: React.FC<{
   const dispatch = useDispatch();
 
   useEffect(() => {
-    fetch('http://localhost:5001/products')
+   fetch('https://mini-ecommerce-store-9epp.onrender.com/products')
       .then((response) => {
         if (!response.ok) {
           throw new Error('Failed to fetch products');

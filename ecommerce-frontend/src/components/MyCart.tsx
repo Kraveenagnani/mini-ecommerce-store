@@ -134,7 +134,7 @@ if (!user) {
   return;
 }
     try {
-      const response = await fetch('http://localhost:5001/orders', {
+      const response = await fetch('http://mini-ecommerce-store-9epp.onrender.com/orders', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
