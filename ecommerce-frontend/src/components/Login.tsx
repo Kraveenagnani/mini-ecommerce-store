@@ -26,7 +26,7 @@ const Login: React.FC<LoginProps> = ({ onBack, onLogin }) => {
     setError('');
 
     try {
-      const response = await fetch('http://mini-ecommerce-store-9epp.onrender.com/login', {
+      const response = await fetch('https://mini-ecommerce-store-9epp.onrender.com/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
