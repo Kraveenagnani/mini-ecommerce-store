@@ -44,21 +44,24 @@ const [selectedProduct, setSelectedProduct] = useState<any>(null);
           >
             Mini E-Commerce Store
           </Typography>
-<Button
-  color="inherit"
-  onClick={() => setView('login')}
-  sx={{ mr: 2, fontWeight: 'bold' }}
->
-  Login
-</Button>
+{!user && (
+  <Button
+    color="inherit"
+    onClick={() => setView('login')}
+    sx={{ mr: 2, fontWeight: 'bold' }}
+  >
+    Login
+  </Button>
+)}
+
 {user && (
   <Button
     color="inherit"
     onClick={() => {
       localStorage.removeItem('token');
       localStorage.removeItem('user');
-setUser(null);   
-   setView('products');
+      setUser(null);
+      setView('products');
     }}
     sx={{ mr: 2, fontWeight: 'bold' }}
   >

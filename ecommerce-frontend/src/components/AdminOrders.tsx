@@ -140,38 +140,46 @@ useEffect(() => {
           </TableHead>
           <TableBody>
             {filteredOrders
-              .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-              .map((order) => (
-                <TableRow
-  key={order._id}
-  hover
-  onClick={() => setSelectedOrder(order)}
-  sx={{ cursor: 'pointer' }}
->
-                 <TableCell sx={{ fontWeight: 'medium' }}>{order._id}</TableCell>
-                  <TableCell>
-  {order.items.map((item: any) => item.product.name).join(', ')}
-</TableCell>
-                  <TableCell>
-  {new Date(order.createdAt).toLocaleDateString()}
-</TableCell>
-                  <TableCell>₹{order.totalPrice}</TableCell>
-                  <TableCell>
-                    <Select
-    size="small"
-    value={order.status}
-    onChange={(e) =>
-      updateOrderStatus(order._id, e.target.value)
-    }
-  >
-    <MenuItem value="Pending">Pending</MenuItem>
-    <MenuItem value="Processing">Processing</MenuItem>
-    <MenuItem value="Shipped">Shipped</MenuItem>
-    <MenuItem value="Delivered">Delivered</MenuItem>
-  </Select>
-                  </TableCell>
-                </TableRow>
-              ))}
+  .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+  .map((order) => (
+    <TableRow
+      key={order._id}
+      hover
+      onClick={() => setSelectedOrder(order)}
+      sx={{ cursor: 'pointer' }}
+    >
+      <TableCell sx={{ fontWeight: 'medium' }}>
+        {order._id}
+      </TableCell>
+
+      <TableCell>
+        {order.user?.name || order.user?.email || 'Guest'}
+      </TableCell>
+
+      <TableCell>
+        {new Date(order.createdAt).toLocaleDateString()}
+      </TableCell>
+
+      <TableCell>
+        ₹{order.totalPrice}
+      </TableCell>
+
+      <TableCell>
+        <Select
+          size="small"
+          value={order.status || 'Pending'}
+          onChange={(e) =>
+            updateOrderStatus(order._id, e.target.value)
+          }
+        >
+          <MenuItem value="Pending">Pending</MenuItem>
+          <MenuItem value="Processing">Processing</MenuItem>
+          <MenuItem value="Shipped">Shipped</MenuItem>
+          <MenuItem value="Delivered">Delivered</MenuItem>
+        </Select>
+      </TableCell>
+    </TableRow>
+  ))}
           </TableBody>
         </Table>
       </TableContainer>
