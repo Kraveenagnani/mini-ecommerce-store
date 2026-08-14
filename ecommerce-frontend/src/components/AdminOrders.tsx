@@ -19,7 +19,7 @@ const [orders, setOrders] = useState<any[]>([]);
 const [selectedOrder, setSelectedOrder] = useState<any | null>(null);
 
 useEffect(() => {
-  fetch('http://mini-ecommerce-store-9epp.onrender.com/orders')
+  fetch('https://mini-ecommerce-store-9epp.onrender.com/orders')
     .then((response) => {
       if (!response.ok) {
         throw new Error('Failed to fetch orders');
@@ -52,7 +52,7 @@ useEffect(() => {
 
   const updateOrderStatus = async (orderId: string, newStatus: string) => {
   try {
-    const response = await fetch(`http://mini-ecommerce-store-9epp.onrender.com/orders/${orderId}`, {
+    const response = await fetch(`https://mini-ecommerce-store-9epp.onrender.com/orders/${orderId}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
