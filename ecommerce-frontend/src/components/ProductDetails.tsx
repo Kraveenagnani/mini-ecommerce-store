@@ -75,7 +75,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({
           sx={{
   width: { xs: '100%', md: '50%' },
   height: { xs: 300, md: 500 },
-  objectFit: 'cover',
+  objectFit: 'contain',
   transition: 'transform 0.3s ease',
 }}
         />

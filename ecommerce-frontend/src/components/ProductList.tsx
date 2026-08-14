@@ -41,7 +41,74 @@ export const ProductList: React.FC<{
         return response.json();
       })
       .then((data) => {
-        setProducts(data);
+        setProducts(
+  data.map((product: Product) => {
+    if (product.name === 'Floral Summer Dress') {
+      return { ...product, imageUrl: '/images/floral-summer-dress.jpg' };
+    }
+
+    if (product.name === 'Elegant Anarkali Kurti') {
+      return { ...product, imageUrl: '/images/elegant-anarkali-kurti.jpeg' };
+    }
+if (product.name === 'Casual Cotton Shirt') {
+      return { ...product, imageUrl: '/images/casual-cotton-shirt.jpeg' };
+    }
+    if (product.name === 'Slim Fit Casual Shirt') {
+  return { ...product, imageUrl: '/images/slim-fit-casual-shirt.jpeg' };
+}
+if (product.name === 'Classic Denim Jeans') {
+  return { ...product, imageUrl: '/images/classic-denim-jeans.jpeg' };
+} 
+if (product.name === 'Comfort Jogger Pants') {
+  return { ...product, imageUrl: '/images/comfort-jogger-pants.jpeg' };
+}
+if (product.name === 'Printed Casual T-Shirt') {
+  return { ...product, imageUrl: '/images/printed-casual-tshirt.jpeg' };
+}
+if (product.name === "Women's Casual Top") {
+  return { ...product, imageUrl: '/images/womens-casual-top.jpeg' };
+} 
+if (product.name === 'Party Wear Dress') {
+  return { ...product, imageUrl: '/images/party-wear-dress.jpeg' };
+}
+if (product.name === 'Designer Saree') {
+  return { ...product, imageUrl: '/images/designer-saree.jpeg' };
+}
+if (product.name === 'Cotton Saree') {
+  return { ...product, imageUrl: '/images/cotton-saree.jpeg' };
+}
+
+if (product.name === 'Sports Shoes') {
+  return { ...product, imageUrl: '/images/sports-shoes.jpeg' };
+}
+if (product.name === 'Casual Sneakers') {
+  return { ...product, imageUrl: '/images/casual-sneakers.jpeg' };
+}
+
+if (product.name === 'Leather Handbag') {
+  return { ...product, imageUrl: '/images/leather-handbag.jpeg' };
+}
+if (product.name === 'Classic Wrist Watch') {
+  return { ...product, imageUrl: '/images/classic-wrist-watch.jpeg' };
+}
+
+if (product.name === 'Fashion Backpack') {
+  return { ...product, imageUrl: '/images/fashion-backpack.jpeg' };
+}
+if (product.name === 'Premium Sunglasses') {
+  return { ...product, imageUrl: '/images/premium-sunglasses.jpeg' };
+}
+
+if (product.name === "Men's Formal Trousers") {
+  return { ...product, imageUrl: '/images/mens-formal-trousers.jpeg' };
+}
+
+if (product.name === "Women's Palazzo Pants") {
+  return { ...product, imageUrl: '/images/womens-palazzo-pants.jpeg' };
+}
+return product;
+  })
+);
       })
       .catch(() => {
         setError('Unable to load products');
@@ -107,7 +174,7 @@ onClick={() => onProductClick(product)}
   sx={{
     width: '100%',
     height: 240,
-    objectFit: 'cover',
+    objectFit: 'contain',
     transition: 'transform 0.3s ease',
   }}
 />
